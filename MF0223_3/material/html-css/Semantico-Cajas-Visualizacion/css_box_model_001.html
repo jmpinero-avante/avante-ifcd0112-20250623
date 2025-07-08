@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Caja CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .box-model-demo {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box-model-demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+        }
+
+        .box-example {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: 40px auto;
+            background: #e8f5e8;
+            border: 15px solid #4ecdc4;
+            padding: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .box-example:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .content-area {
+            background: #ff6b6b;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .box-example:hover .content-area::before {
+            left: 100%;
+        }
+
+        .label {
+            position: absolute;
+            font-weight: bold;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .margin-label {
+            background: #ff6b6b;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .border-label {
+            background: #4ecdc4;
+            top: 5px;
+            right: 5px;
+        }
+
+        .padding-label {
+            background: #45b7d1;
+            top: 20px;
+            left: 20px;
+        }
+
+        .content-label {
+            background: #f9ca24;
+            color: #333;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .dimensions-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .dimension-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dimension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .dimension-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .dimension-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .formula {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .interactive-note {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            color: white;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .box-example {
+                width: 300px;
+                height: 200px;
+                padding: 20px;
+                border-width: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Modelo de Caja CSS</h1>
+        
+        <div class="box-model-demo">
+            <div class="box-example">
+                <div class="label margin-label">MARGIN</div>
+                <div class="label border-label">BORDER</div>
+                <div class="label padding-label">PADDING</div>
+                <div class="content-area">
+                    CONTENT
+                    <div class="label content-label">WIDTH × HEIGHT</div>
+                </div>
+            </div>
+
+            <div class="formula">
+                <strong>Tamaño Total = Content + Padding + Border + Margin</strong>
+            </div>
+
+            <div class="dimensions-info">
+                <div class="dimension-card">
+                    <h3>📏 WIDTH & HEIGHT</h3>
+                    <p>Definen el tamaño del área de contenido. Son las dimensiones base del elemento.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>🔲 PADDING</h3>
+                    <p>Espacio interno entre el contenido y el borde. Aumenta el área clickeable del elemento.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>🖼️ BORDER</h3>
+                    <p>Línea que rodea el padding y el contenido. Puede ser visible o invisible.</p>
+                </div>
+                
+                <div class="dimension-card">
+                    <h3>⬜ MARGIN</h3>
+                    <p>Espacio externo que separa el elemento de otros elementos vecinos.</p>
+                </div>
+            </div>
+
+            <div class="interactive-note">
+                ✨ Pasa el cursor sobre la caja para ver el efecto 3D
+            </div>
+        </div>
+    </div>
+</body>
+</html>

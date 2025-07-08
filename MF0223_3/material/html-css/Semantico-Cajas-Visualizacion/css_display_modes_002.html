@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modos de Posicionamiento CSS</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn.active {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .btn-block { background: linear-gradient(45deg, #ff6b6b, #ee5a24); color: white; }
+        .btn-inline { background: linear-gradient(45deg, #4ecdc4, #44a08d); color: white; }
+        .btn-inline-block { background: linear-gradient(45deg, #45b7d1, #2980b9); color: white; }
+        .btn-flex { background: linear-gradient(45deg, #f093fb, #f5576c); color: white; }
+        .btn-grid { background: linear-gradient(45deg, #4facfe, #00f2fe); color: white; }
+        .btn-none { background: linear-gradient(45deg, #43e97b, #38f9d7); color: white; }
+
+        .current-mode {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            text-align: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .demo-area {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .demo-area::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .info-panel {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .info-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .info-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+
+        .info-properties {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .demo-element {
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-element::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .demo-element:hover::before {
+            left: 100%;
+        }
+
+        .element-1 { background: linear-gradient(45deg, #ff6b6b, #ee5a24); }
+        .element-2 { background: linear-gradient(45deg, #4ecdc4, #44a08d); }
+        .element-3 { background: linear-gradient(45deg, #45b7d1, #2980b9); }
+        .element-4 { background: linear-gradient(45deg, #f093fb, #f5576c); }
+
+        .display-block .demo-element {
+            display: block;
+            width: 100%;
+        }
+
+        .display-inline .demo-element {
+            display: inline;
+            width: auto;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+
+        .display-inline-block .demo-element {
+            display: inline-block;
+            width: 150px;
+        }
+
+        .display-flex {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .display-flex .demo-element {
+            flex: 1;
+        }
+
+        .display-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .display-none .demo-element {
+            display: none;
+        }
+
+        .display-none .demo-element:first-child {
+            display: block;
+        }
+
+        /* Sección de comparación none vs hidden */
+        .comparison-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .comparison-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .comparison-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .comparison-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .comparison-btn.active {
+            transform: scale(1.05);
+        }
+
+        .btn-visible { background: linear-gradient(45deg, #2ecc71, #27ae60); color: white; }
+        .btn-hidden { background: linear-gradient(45deg, #f39c12, #e67e22); color: white; }
+        .btn-none-comp { background: linear-gradient(45deg, #e74c3c, #c0392b); color: white; }
+
+        .comparison-demo {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 200px;
+            border: 2px dashed #bdc3c7;
+            position: relative;
+        }
+
+        .comparison-element {
+            display: inline-block;
+            width: 120px;
+            height: 80px;
+            line-height: 80px;
+            margin: 10px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .comp-element-1 { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+        .comp-element-2 { background: linear-gradient(45deg, #3498db, #2980b9); }
+        .comp-element-3 { background: linear-gradient(45deg, #e67e22, #d35400); }
+
+        .hidden-element { visibility: hidden; }
+        .none-element { display: none; }
+
+        /* Sección de etiquetas HTML por defecto */
+        .html-tags-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .tags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tag-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .tag-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tag-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .tag-display {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .block-tag { border-left-color: #e74c3c; }
+        .inline-tag { border-left-color: #2ecc71; }
+        .inline-block-tag { border-left-color: #f39c12; }
+        .table-tag { border-left-color: #9b59b6; }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+            
+            .demo-area {
+                padding: 20px;
+            }
+
+            .tags-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<style>
+#resizable-container {
+    border: 2px dashed #888;
+    padding: 10px;
+    overflow: auto;
+    resize: none;
+    transition: width 0.2s ease;
+}
+</style><script>
+function updateWidth(value) {
+    document.getElementById('resizable-container').style.width = value + 'px';
+}
+</script></head>
+<body>
+<label>Ancho del contenedor: <input max="1000" min="200" oninput="updateWidth(this.value)" type="range" value="600"/></label><div id="resizable-container"><div class="container">
+<h1>🎨 Modos de Posicionamiento CSS</h1>
+<div class="controls">
+<button class="btn btn-block active" onclick="changeDisplay('block')">BLOCK</button>
+<button class="btn btn-inline" onclick="changeDisplay('inline')">INLINE</button>
+<button class="btn btn-inline-block" onclick="changeDisplay('inline-block')">INLINE-BLOCK</button>
+<button class="btn btn-flex" onclick="changeDisplay('flex')">FLEX</button>
+<button class="btn btn-grid" onclick="changeDisplay('grid')">GRID</button>
+<button class="btn btn-none" onclick="changeDisplay('none')">NONE</button>
+</div>
+<div class="current-mode" id="currentMode">display: block</div>
+<div class="demo-area" id="demoArea">
+<div class="demo-element element-1">Elemento 1 - Contenido más largo</div>
+<div class="demo-element element-2">Elemento 2 - Texto extendido</div>
+<div class="demo-element element-3">Elemento 3 - Contenido adicional</div>
+<div class="demo-element element-4">Elemento 4 - Más texto</div>
+</div>
+<div class="info-panel" id="infoPanel">
+<div class="info-title">📦 Display: Block</div>
+<div class="info-description">
+                Los elementos en bloque ocupan todo el ancho disponible de su contenedor padre. Cada elemento comienza en una nueva línea, creando un flujo vertical. Son ideales para estructurar secciones principales de contenido.
+            </div>
+<div class="info-properties">
+<strong>Propiedades:</strong><br/>
+                • Ocupa todo el ancho disponible<br/>
+                • Comienza en nueva línea<br/>
+                • Permite width y height<br/>
+                • Ejemplos: &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;, &lt;section&gt;
+            </div>
+</div>
+<h2>🔍 Display: None vs Visibility: Hidden</h2>
+<div class="comparison-section">
+<div class="comparison-controls">
+<button class="comparison-btn btn-visible active" onclick="changeComparison('visible')">Visible</button>
+<button class="comparison-btn btn-hidden" onclick="changeComparison('hidden')">Visibility: Hidden</button>
+<button class="comparison-btn btn-none-comp" onclick="changeComparison('none')">Display: None</button>
+</div>
+<div class="comparison-demo" id="comparisonDemo">
+<div class="comparison-element comp-element-1">Elemento A</div>
+<div class="comparison-element comp-element-2" id="targetElement">Elemento B</div>
+<div class="comparison-element comp-element-3">Elemento C</div>
+</div>
+<div class="info-properties" id="comparisonInfo">
+<strong>Estado: Visible</strong><br/>
+                • Todos los elementos son visibles y ocupan espacio<br/>
+                • El flujo normal del documento se mantiene<br/>
+                • Los elementos son accesibles para lectores de pantalla
+            </div>
+</div>
+<h2>🏷️ Display por Defecto de Etiquetas HTML5</h2>
+<div class="html-tags-section">
+<p style="text-align: center; margin-bottom: 20px; color: #34495e; font-size: 1.1rem;">
+                Cada etiqueta HTML tiene un valor de display por defecto definido por el navegador
+            </p>
+<div class="tags-grid">
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;div&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;p&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;h1&gt; - &lt;h6&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;section&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;article&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;header&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;footer&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;nav&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;main&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;aside&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;ul&gt;, &lt;ol&gt;</div>
+<div class="tag-display">display: block</div>
+</div>
+<div class="tag-card block-tag">
+<div class="tag-name">&lt;li&gt;</div>
+<div class="tag-display">display: list-item</div>
+</div>
+<div class="tag-card inline-tag">
+<div class="tag-name">&lt;span&gt;</div>
+<div class="tag-display">display: inline</div>
+</div>
+<div class="tag-card inline-tag">
+<div class="tag-name">&lt;a&gt;</div>
+<div class="tag-display">display: inline</div>
+</div>
+<div class="tag-card inline-tag">
+<div class="tag-name">&lt;strong&gt;</div>
+<div class="tag-display">display: inline</div>
+</div>
+<div class="tag-card inline-tag">
+<div class="tag-name">&lt;em&gt;</div>
+<div class="tag-display">display: inline</div>
+</div>
+<div class="tag-card inline-tag">
+<div class="tag-name">&lt;code&gt;</div>
+<div class="tag-display">display: inline</div>
+</div>
+<div class="tag-card inline-tag">
+<div class="tag-name">&lt;small&gt;</div>
+<div class="tag-display">display: inline</div>
+</div>
+<div class="tag-card inline-block-tag">
+<div class="tag-name">&lt;img&gt;</div>
+<div class="tag-display">display: inline-block</div>
+</div>
+<div class="tag-card inline-block-tag">
+<div class="tag-name">&lt;input&gt;</div>
+<div class="tag-display">display: inline-block</div>
+</div>
+<div class="tag-card inline-block-tag">
+<div class="tag-name">&lt;button&gt;</div>
+<div class="tag-display">display: inline-block</div>
+</div>
+<div class="tag-card inline-block-tag">
+<div class="tag-name">&lt;select&gt;</div>
+<div class="tag-display">display: inline-block</div>
+</div>
+<div class="tag-card table-tag">
+<div class="tag-name">&lt;table&gt;</div>
+<div class="tag-display">display: table</div>
+</div>
+<div class="tag-card table-tag">
+<div class="tag-name">&lt;tr&gt;</div>
+<div class="tag-display">display: table-row</div>
+</div>
+<div class="tag-card table-tag">
+<div class="tag-name">&lt;td&gt;, &lt;th&gt;</div>
+<div class="tag-display">display: table-cell</div>
+</div>
+<div class="tag-card table-tag">
+<div class="tag-name">&lt;thead&gt;</div>
+<div class="tag-display">display: table-header-group</div>
+</div>
+</div>
+</div>
+</div></div>
+<script>
+        const displayModes = {
+            block: {
+                title: '📦 Display: Block',
+                description: 'Los elementos en bloque ocupan todo el ancho disponible de su contenedor padre. Cada elemento comienza en una nueva línea, creando un flujo vertical. Son ideales para estructurar secciones principales de contenido.',
+                properties: '• Ocupa todo el ancho disponible<br>• Comienza en nueva línea<br>• Permite width y height<br>• Ejemplos: &lt;div&gt;, &lt;p&gt;, &lt;h1&gt;, &lt;section&gt;'
+            },
+            inline: {
+                title: '📝 Display: Inline',
+                description: 'Los elementos en línea solo ocupan el espacio necesario para su contenido. Se alinean horizontalmente y pueden compartir la misma línea. Cuando no caben en una línea, automáticamente saltan a la siguiente línea.',
+                properties: '• Solo ocupa el espacio necesario<br>• Se alinea horizontalmente<br>• Salta a nueva línea si no cabe<br>• No permite width y height<br>• Ejemplos: &lt;span&gt;, &lt;a&gt;, &lt;strong&gt;, &lt;em&gt;'
+            },
+            'inline-block': {
+                title: '🔄 Display: Inline-Block',
+                description: 'Combina lo mejor de ambos mundos: se comporta como inline (se alinea horizontalmente) pero permite propiedades de bloque como width y height. Perfecto para crear layouts horizontales con control de dimensiones.',
+                properties: '• Se alinea horizontalmente<br>• Permite width y height<br>• Respeta márgenes y padding<br>• Ideal para botones y tarjetas'
+            },
+            flex: {
+                title: '🤸 Display: Flex',
+                description: 'Flexbox es un sistema de layout unidimensional que permite alinear y distribuir elementos de manera flexible. Ideal para crear layouts responsivos y centrar contenido fácilmente.',
+                properties: '• Layout flexible y responsivo<br>• Fácil alineación y distribución<br>• Control sobre el espacio entre elementos<br>• Perfecto para componentes UI'
+            },
+            grid: {
+                title: '🗂️ Display: Grid',
+                description: 'CSS Grid es un sistema de layout bidimensional que permite crear layouts complejos con filas y columnas. Ofrece control total sobre la posición de los elementos en una cuadrícula.',
+                properties: '• Layout bidimensional (filas y columnas)<br>• Control preciso de posicionamiento<br>• Ideal para layouts complejos<br>• Perfecto para diseños de página'
+            },
+            none: {
+                title: '👻 Display: None',
+                description: 'Los elementos con display: none se eliminan completamente del flujo del documento. No ocupan espacio y no son visibles. Es como si no existieran en la página.',
+                properties: '• Elemento completamente oculto<br>• No ocupa espacio en el layout<br>• No es accesible para lectores de pantalla<br>• Útil para mostrar/ocultar contenido'
+            }
+        };
+
+        const comparisonModes = {
+            visible: {
+                info: '<strong>Estado: Visible</strong><br>• Todos los elementos son visibles y ocupan espacio<br>• El flujo normal del documento se mantiene<br>• Los elementos son accesibles para lectores de pantalla'
+            },
+            hidden: {
+                info: '<strong>Visibility: Hidden</strong><br>• El elemento no es visible pero SÍ ocupa espacio<br>• Mantiene su lugar en el flujo del documento<br>• Los elementos adyacentes no se mueven<br>• No es accesible para lectores de pantalla'
+            },
+            none: {
+                info: '<strong>Display: None</strong><br>• El elemento no es visible y NO ocupa espacio<br>• Se elimina completamente del flujo del documento<br>• Los elementos adyacentes se reorganizan<br>• No es accesible para lectores de pantalla'
+            }
+        };
+
+        function changeDisplay(mode) {
+            const demoArea = document.getElementById('demoArea');
+            const currentMode = document.getElementById('currentMode');
+            const infoPanel = document.getElementById('infoPanel');
+            
+            // Actualizar clases
+            demoArea.className = 'demo-area display-' + mode;
+            currentMode.textContent = 'display: ' + mode;
+            
+            // Actualizar botones activos
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.btn-' + mode).classList.add('active');
+            
+            // Actualizar información
+            const info = displayModes[mode];
+            infoPanel.innerHTML = `
+                <div class="info-title">${info.title}</div>
+                <div class="info-description">${info.description}</div>
+                <div class="info-properties">
+                    <strong>Propiedades:</strong><br>
+                    ${info.properties}
+                </div>
+            `;
+            
+            // Animación de entrada
+            infoPanel.style.opacity = '0';
+            infoPanel.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                infoPanel.style.transition = 'all 0.3s ease';
+                infoPanel.style.opacity = '1';
+                infoPanel.style.transform = 'translateY(0)';
+            }, 100);
+        }
+
+        function changeComparison(mode) {
+            const targetElement = document.getElementById('targetElement');
+            const comparisonInfo = document.getElementById('comparisonInfo');
+            
+            // Remover todas las clases
+            targetElement.classList.remove('hidden-element', 'none-element');
+            
+            // Aplicar la clase correspondiente
+            if (mode === 'hidden') {
+                targetElement.classList.add('hidden-element');
+            } else if (mode === 'none') {
+                targetElement.classList.add('none-element');
+            }
+            
+            // Actualizar botones activos
+            document.querySelectorAll('.comparison-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.btn-' + mode).classList.add('active');
+            
+            // Actualizar información
+            comparisonInfo.innerHTML = comparisonModes[mode].info;
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            changeDisplay('block');
+            changeComparison('visible');
+        });
+    </script>
+</body>
+</html>

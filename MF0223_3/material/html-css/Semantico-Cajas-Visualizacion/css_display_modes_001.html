@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modos de Renderizado CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .display-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .display-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .display-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+        }
+
+        .display-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .display-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .display-description {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .demo-area {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px dashed #ddd;
+            position: relative;
+            min-height: 120px;
+        }
+
+        /* Block Demo */
+        .block-demo .demo-element {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .block-demo .demo-element:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+
+        /* Inline Demo */
+        .inline-demo .demo-element {
+            background: #4ecdc4;
+            color: white;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .inline-demo .demo-element:hover {
+            background: #45b7d1;
+            transform: scale(1.1);
+        }
+
+        /* Inline-Block Demo */
+        .inline-block-demo .demo-element {
+            background: #45b7d1;
+            color: white;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            width: 80px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .inline-block-demo .demo-element:hover {
+            background: #f9ca24;
+            color: #333;
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        /* Flex Demo */
+        .flex-demo .demo-container {
+            display: flex;
+            gap: 10px;
+            justify-content: space-around;
+            align-items: center;
+            height: 100px;
+        }
+
+        .flex-demo .demo-element {
+            background: #f9ca24;
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .flex-demo .demo-element:hover {
+            flex: 2;
+            background: #ff6b6b;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Grid Demo */
+        .grid-demo .demo-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            height: 100px;
+        }
+
+        .grid-demo .demo-element {
+            background: #9b59b6;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .grid-demo .demo-element:hover {
+            background: #e74c3c;
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        /* None Demo */
+        .none-demo .demo-element {
+            background: #95a5a6;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .none-demo .demo-element.hidden {
+            display: none;
+        }
+
+        .none-demo .toggle-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .none-demo .toggle-btn:hover {
+            background: #c0392b;
+        }
+
+        .code-snippet {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-snippet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .display-card:hover .code-snippet::before {
+            left: 100%;
+        }
+
+        .highlight {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .display-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Modos de Renderizado CSS</h1>
+        
+        <div class="display-grid">
+            <!-- Block -->
+            <div class="display-card">
+                <div class="display-title">📦 BLOCK</div>
+                <div class="display-description">
+                    Elementos que ocupan todo el ancho disponible y se apilan verticalmente
+                </div>
+                <div class="demo-area block-demo">
+                    <div class="demo-element">Elemento 1</div>
+                    <div class="demo-element">Elemento 2</div>
+                    <div class="demo-element">Elemento 3</div>
+                </div>
+                <div class="code-snippet">
+                    <span class="highlight">display:</span> block;
+                </div>
+            </div>
+
+            <!-- Inline -->
+            <div class="display-card">
+                <div class="display-title">↔️ INLINE</div>
+                <div class="display-description">
+                    Elementos que fluyen horizontalmente como texto, sin saltos de línea
+                </div>
+                <div class="demo-area inline-demo">
+                    <span class="demo-element">Uno</span>
+                    <span class="demo-element">Dos</span>
+                    <span class="demo-element">Tres</span>
+                    <span class="demo-element">Cuatro</span>
+                </div>
+                <div class="code-snippet">
+                    <span class="highlight">display:</span> inline;
+                </div>
+            </div>
+
+            <!-- Inline-Block -->
+            <div class="display-card">
+                <div class="display-title">🧱 INLINE-BLOCK</div>
+                <div class="display-description">
+                    Combinación: flujo horizontal como inline, pero con dimensiones como block
+                </div>
+                <div class="demo-area inline-block-demo">
+                    <div class="demo-element">A</div>
+                    <div class="demo-element">B</div>
+                    <div class="demo-element">C</div>
+                    <div class="demo-element">D</div>
+                </div>
+                <div class="code-snippet">
+                    <span class="highlight">display:</span> inline-block;
+                </div>
+            </div>
+
+            <!-- Flex -->
+            <div class="display-card">
+                <div class="display-title">🤸 FLEX</div>
+                <div class="display-description">
+                    Disposición flexible en una dimensión con control total del espacio
+                </div>
+                <div class="demo-area flex-demo">
+                    <div class="demo-container">
+                        <div class="demo-element">Flex 1</div>
+                        <div class="demo-element">Flex 2</div>
+                        <div class="demo-element">Flex 3</div>
+                    </div>
+                </div>
+                <div class="code-snippet">
+                    <span class="highlight">display:</span> flex;
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="display-card">
+                <div class="display-title">🏗️ GRID</div>
+                <div class="display-description">
+                    Sistema de rejilla bidimensional para layouts complejos
+                </div>
+                <div class="demo-area grid-demo">
+                    <div class="demo-container">
+                        <div class="demo-element">1</div>
+                        <div class="demo-element">2</div>
+                        <div class="demo-element">3</div>
+                        <div class="demo-element">4</div>
+                        <div class="demo-element">5</div>
+                        <div class="demo-element">6</div>
+                    </div>
+                </div>
+                <div class="code-snippet">
+                    <span class="highlight">display:</span> grid;
+                </div>
+            </div>
+
+            <!-- None -->
+            <div class="display-card">
+                <div class="display-title">👻 NONE</div>
+                <div class="display-description">
+                    Elemento completamente removido del flujo del documento
+                </div>
+                <div class="demo-area none-demo">
+                    <div class="demo-element">Elemento Visible</div>
+                    <div class="demo-element" id="hiddenElement">Elemento Oculto</div>
+                    <div class="demo-element">Elemento Visible</div>
+                    <button class="toggle-btn" onclick="toggleElement()">Toggle Elemento</button>
+                </div>
+                <div class="code-snippet">
+                    <span class="highlight">display:</span> none;
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleElement() {
+            const element = document.getElementById('hiddenElement');
+            element.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

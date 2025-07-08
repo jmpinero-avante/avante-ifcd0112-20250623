@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas Semánticas HTML5</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .webpage-structure {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .semantic-section {
+            padding: 20px;
+            margin: 5px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .semantic-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .semantic-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .semantic-section:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+        
+        .nav {
+            background: linear-gradient(135deg, #4ecdc4, #7fdbda);
+            color: white;
+        }
+        
+        .main {
+            background: linear-gradient(135deg, #45b7d1, #6dd5ed);
+            color: white;
+            min-height: 200px;
+        }
+        
+        .article {
+            background: linear-gradient(135deg, #f9ca24, #f0932b);
+            color: white;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        
+        .section {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        
+        .aside {
+            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            color: white;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+        }
+        
+        .tag-label {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .tag-description {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .legend-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+        
+        .legend-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(10px);
+        }
+        
+        .legend-item h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .legend-item p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+        
+        .structure { border-left-color: #ff6b6b; }
+        .content { border-left-color: #4ecdc4; }
+        .navigation { border-left-color: #45b7d1; }
+        .info { border-left-color: #6c5ce7; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ Etiquetas Semánticas HTML5</h1>
+        
+        <div class="webpage-structure">
+            <div class="semantic-section header">
+                <span class="tag-label">&lt;header&gt;</span>
+                <span class="tag-description">Encabezado principal - Logo, título, navegación principal</span>
+            </div>
+            
+            <div class="semantic-section nav">
+                <span class="tag-label">&lt;nav&gt;</span>
+                <span class="tag-description">Navegación - Menús, enlaces principales, breadcrumbs</span>
+            </div>
+            
+            <div class="semantic-section main">
+                <span class="tag-label">&lt;main&gt;</span>
+                <span class="tag-description">Contenido principal único de la página</span>
+                
+                <div class="flex-container">
+                    <div class="article">
+                        <span class="tag-label">&lt;article&gt;</span>
+                        <span class="tag-description">Contenido independiente y reutilizable</span>
+                    </div>
+                    
+                    <div class="section">
+                        <span class="tag-label">&lt;section&gt;</span>
+                        <span class="tag-description">Sección temática del contenido</span>
+                    </div>
+                    
+                    <div class="aside">
+                        <span class="tag-label">&lt;aside&gt;</span>
+                        <span class="tag-description">Contenido relacionado o lateral</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="semantic-section footer">
+                <span class="tag-label">&lt;footer&gt;</span>
+                <span class="tag-description">Pie de página - Copyright, enlaces legales, contacto</span>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item structure">
+                <h3>🏛️ Estructura Principal</h3>
+                <p><strong>&lt;header&gt;</strong> - Encabezado de página o sección</p>
+                <p><strong>&lt;main&gt;</strong> - Contenido principal único</p>
+                <p><strong>&lt;footer&gt;</strong> - Pie de página o sección</p>
+            </div>
+            
+            <div class="legend-item content">
+                <h3>📄 Contenido</h3>
+                <p><strong>&lt;article&gt;</strong> - Contenido independiente</p>
+                <p><strong>&lt;section&gt;</strong> - Sección temática</p>
+                <p><strong>&lt;figure&gt;</strong> - Contenido visual</p>
+                <p><strong>&lt;figcaption&gt;</strong> - Descripción de figura</p>
+            </div>
+            
+            <div class="legend-item navigation">
+                <h3>🧭 Navegación</h3>
+                <p><strong>&lt;nav&gt;</strong> - Menús de navegación</p>
+                <p><strong>&lt;menu&gt;</strong> - Menús interactivos</p>
+                <p><strong>&lt;a&gt;</strong> - Enlaces</p>
+            </div>
+            
+            <div class="legend-item info">
+                <h3>ℹ️ Información</h3>
+                <p><strong>&lt;time&gt;</strong> - Fechas y horas</p>
+                <p><strong>&lt;address&gt;</strong> - Información de contacto</p>
+                <p><strong>&lt;details&gt;</strong> - Contenido desplegable</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
