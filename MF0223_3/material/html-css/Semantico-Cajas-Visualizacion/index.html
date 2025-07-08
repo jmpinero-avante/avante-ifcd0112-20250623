@@ -27,6 +27,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
+            margin-bottom: 20px; /* Added space for the button below the container */
         }
 
         h1 {
@@ -108,6 +109,26 @@
         .card-html { border-left-color: #ff6b6b; } /* Reddish for HTML */
         .card-css { border-left-color: #4834d4; } /* Purplish for CSS */
         .card-interactive { border-left-color: #00d2d3; } /* Cyan for Interactive */
+
+        /* Styles for the back button */
+        .back-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block; /* To ensure it doesn't take full width */
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -147,5 +168,6 @@
             </a>
         </div>
     </div>
+    <a href="../../../index.html" class="back-button">Volver al Módulo MF0223_3</a>
 </body>
 </html>
