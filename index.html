@@ -27,6 +27,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
+            margin-bottom: 20px; /* Espacio para el botón adicional */
         }
 
         h1 {
@@ -103,6 +104,27 @@
             margin-bottom: 0;
             color: rgba(255, 255, 255, 0.9);
         }
+
+        /* Estilos para el botón de GitHub */
+        .github-button {
+            background: linear-gradient(45deg, #24292e, #4a4f54); /* Colores de GitHub */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .github-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -111,11 +133,14 @@
         <p>Explora los diferentes módulos disponibles en nuestra plataforma.</p>
 
         <div class="modules-grid">
-            <a href="./MF0223_3/index.html" class="module-card">
+            <a href="MF0223_3/index.html" class="module-card">
                 <h3>Módulo Formativo 1 - MF0223_3 Sistemas Operativos y Aplicaciones Informáticas</h3>
                 <p>Contenido relacionado con sistemas operativos, software básico y aplicaciones informáticas.</p>
             </a>
             </div>
     </div>
+    <a href="https://github.com/jmpinero-avante/avante-ifcd0112-20250623" target="_blank" class="github-button">
+        Ver en GitHub
+    </a>
 </body>
 </html>
