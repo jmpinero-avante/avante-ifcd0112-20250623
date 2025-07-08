@@ -10,8 +10,3 @@ Puedes explorar el material directamente a través de las GitHub Pages de este r
 
 [Ir a las GitHub Pages](https://jmpinero-avante.github.io/avante-ifcd0112-20250623/)
 
----
-
-**¡Contribuye!**
-
-Si encuentras algún error, tienes sugerencias para mejorar el contenido o quieres añadir tus propias soluciones a los ejercicios, no dudes en abrir un "Issue" o enviar un "Pull Request".
