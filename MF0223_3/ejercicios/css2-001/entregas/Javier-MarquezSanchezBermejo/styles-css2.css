@@ -1,0 +1,210 @@
+/* -------------------------- */
+/* CSS Reset            */
+/* -------------------------- */
+
+/* Utilizamos el selector universal (*) para aplicar un reseteo general.
+  El 'box-sizing: border-box' hace que el padding y el borde se incluyan
+  en el ancho y alto total del elemento, lo que facilita mucho el diseño.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+  También es una buena práctica resetear estilos en una lista de etiquetas
+  específicas para asegurar la consistencia.
+*/
+body,
+h1,
+h2,
+p,
+ul,
+table {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/*
+  Un reseteo adicional muy común es quitar los estilos de las listas,
+  especialmente útil para los menús de navegación.
+*/
+ul {
+    list-style: none;
+}
+
+/* ENCABEZADO */
+header {
+    background-color: #4CAF50;
+    /* Color de fondo diferenciado */
+    text-align: center;
+    /* Texto centrado */
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    /* Fuente más grande que el tamaño predeterminado */
+    color: white;
+    margin: 0;
+}
+
+
+/* MENÚ DE NAVEGACIÓN */
+nav {
+    background-color: #333;
+    /* Color de fondo diferenciado */
+    width: 200px;
+    /* Ancho fijo */
+    float: left;
+    /* Posiciona el menú a la izquierda */
+    height: 75vh;
+    /* Ocupa toda la altura visible */
+    padding-top: 0px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+}
+
+nav a:hover {
+    background-color: #575757;
+    /* Color al pasar el mouse */
+}
+
+/* TABLA DE PRODUCTOS */
+table {
+    border-collapse: collapse;
+    /* Unifica bordes */
+    margin: 20px auto;
+    /* Centra horizontalmente */
+    width: 80%;
+    border: 2px solid #444;
+    /* Borde general alrededor de la tabla */
+}
+
+
+caption {
+    caption-side: top;
+    /* Título encima de la tabla */
+    text-align: center;
+    /* Centrado respecto a la tabla */
+    font-weight: bold;
+    /* Negrita */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+th,
+td {
+    border: 1px solid #888;
+    /* Bordes entre celdas */
+    padding: 10px;
+    text-align: center;
+    /* Centrado por defecto */
+}
+
+thead {
+    background-color: #006699;
+    /* Fondo del encabezado */
+    color: white;
+}
+
+thead th {
+    font-weight: bold;
+    /* Negrita */
+}
+
+tbody {
+    background-color: #e9f5ff;
+    /* Fondo diferente para el cuerpo */
+}
+.clearfix{
+    clear: both;
+    /*Crea un hueco para poder posicionarlo debajo*/
+}
+/* PIE DE PÁGINA */
+footer {
+    font-size: 0.8em;
+    /* Fuente más pequeña */
+    text-align: right;
+    /* Alineado a la derecha */
+    font-style: italic;
+    /* Cursiva */
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    /* Fondo clarito para destacar */
+    border-top: 1px solid #ccc;
+    /* Línea divisoria superior */
+    
+}
+
+    /* Selectores múltiples independientes*/
+    h1,
+    h2,
+    caption {
+        color: #2c3e50;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Selectores descendientes directos(>)*/
+    nav>ul {
+        border-top: 2px solid #fff;
+    }
+
+    /*Selectores descendientes no directos (espacio)*/
+    main section p {
+        line-height: 1.6;
+
+    }
+
+    /*Selectores adyacentes (+)*/
+    h2+p {
+        font-style: italic;
+        text-align: left;
+    }
+
+    /*Detalles adicionales creativos y técnicos*/
+
+    /*Animación de enlace al pasar el cursor*/
+    nav a {
+        transition: background-color 0.3s ease, padding-left 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: #575757;
+        padding-left: 30px;
+        /* efecto deslizante */
+    }
+
+    /*Sombra en el encabezado*/
+    header {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /*Tabla con efecto alternado (zebra striping)*/
+    tbody tr:nth-child(even) {
+        background-color: #d6ecff;
+    }
+
+    /*Tipografía con Google Fonts (lo añado en el archivo HTML)*/
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
