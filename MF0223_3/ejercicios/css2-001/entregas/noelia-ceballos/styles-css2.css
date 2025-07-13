@@ -23,8 +23,8 @@ header {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    margin-left: 600px;
-    margin-right: 600px;
+    margin-left: 400px;
+    margin-right: 400px;
     padding: 20px;
     border-radius: 10px;
 }
@@ -36,7 +36,6 @@ nav ul {
     position: fixed;
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: bold;
 }
 
 /* Selectores descendientes directos */
@@ -44,7 +43,7 @@ nav ul {
 nav ul li {
     background-color: #2582b4;
     border: 3px dashed #a9e20f;
-    margin-left: 300px;
+    margin-left: 100px;
     margin-bottom: 5px;
     text-align: center;
     padding: 7px;
@@ -60,7 +59,8 @@ nav a {
 
 /* Le he puesto una transición a la barra de navegación para que los colores cambien de forma más gradual cuando el ratón esté sobre ella */
 
-nav ul li:hover {color:#2582b4;
+nav ul li:hover {
+    color: #2582b4;
     background-color: #c9eb6a;
     border: 3px dashed #2582b4;
     transition-property: background-color, border;
@@ -79,9 +79,8 @@ nav a:hover {
 /* Main */
 
 main {
-    position: relative;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 300px;
+    margin-right: 300px;
     margin-bottom: 100px;
     padding: 30px;
     background-color: #ffffff;
@@ -101,16 +100,20 @@ table {
     padding: 10px;
 }
 
-table caption {font-weight: bold;}
+table caption {
+    font-weight: bold;
+}
 
 
 /* Cabecera de la tabla de color diferenciado */
 
-thead th {border: 2px solid #2582b4;
+thead th {
+    border: 2px solid #2582b4;
     background-color: #79bbd5;
     padding: 7px;
-text-align: center;
-font-weight: bold;}
+    text-align: center;
+    font-weight: bold;
+}
 
 td {
     border: 2px solid #2582b4;
