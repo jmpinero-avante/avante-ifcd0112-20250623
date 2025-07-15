@@ -1,0 +1,123 @@
+        
+        
+        /*  RESET CSS */
+        
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+
+        
+        }
+        body{
+            background-color: rgb(190, 168, 211);
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            line-height: 1.5;
+            
+        }
+
+        /* ENCABEZADO */
+        header{
+            text-align: center;
+            font-size: 2em;
+            color:aliceblue;
+            padding: 20px;
+            background-color: rgb(96, 22, 166);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) ;
+        }
+
+        /* MENU DE NAVEGACION */
+        nav{
+            width: 160px;
+            float: left;
+            background-color: rgb(223, 214, 231);
+            height: 100vh;
+            padding: 20px 0;
+        
+        }
+        nav ul{
+            list-style:none;
+            padding: 0;
+        }
+        nav a{
+            text-decoration: none;
+            color: rgb(50, 50, 100);
+            font-weight: bold;
+            padding: 5px;
+            display: inline-block;
+        }
+        nav a:hover{
+            background-color: rgb(200,200,240);
+            color: darkblue;
+        }
+
+        /* MAIN Y SECTION */
+        main{
+            margin-left: 180px;
+            padding: 20px;
+        }
+
+        section{
+            padding: 10px;
+        }   
+
+        /* TABLA */
+        table,th,td{
+            border: 2px solid rgb(147, 112, 69);
+            border-collapse: collapse;
+            padding: 10px;
+            
+        }
+
+        table{
+            margin:  auto;
+            margin-top: 20px;
+            background-color: white;
+        }
+        caption{
+            caption-side: top;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        thead{
+            background-color: #7b1c92ca;
+        }
+        th{
+            text-align: center;
+            font-weight: bold;
+        }
+        tbody{
+            background-color: rgb(205, 189, 202);
+        }
+
+        footer{
+            font-size: 0.8em;
+            font-style: italic;
+            text-align: right;
+            clear: both;
+            padding:15px;
+            background-color: rgb(173, 140, 172);
+        } 
+
+        /* SELECTORES REQUERIDOS
+            MULTIPLES INDEPENDIENTES */
+
+        h1,h2, p{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* DESCENDIENTES DIRECTOS  */
+        nav>ul{
+            margin-left: 10px;
+        }
+        /* DESCENDIENTES NO DIRECTOS */
+        section p{
+            font-size: 1.1em;
+        }
+        /*ADYACENTES */
+
+        h2+p{
+            margin-top: 10px;
+        }
