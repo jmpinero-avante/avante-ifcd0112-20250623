@@ -1,0 +1,134 @@
+/*hoja de estilos de ejercicio*/
+
+/*reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/*fin de reset*/
+
+body {
+    background-color: #33ff6b;
+}
+
+header {
+    background-color: #2D6653;
+    /* color de cabecera diferenciado */
+    text-align: center;
+    /* texto centrado */
+    color: white;
+    font-size: xx-large;
+    /* texto mas grande */
+}
+
+main {
+    padding: 20px 0px;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    /* eje horizontal */
+
+}
+
+nav {
+    float: left;
+    /* texto alineado ala izquierda */
+    width: 150px;
+    height: 400px;
+    background: rgb(45, 102, 83);
+    /* color de menu navegacion diferenciado */
+    color: white;
+}
+
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2, h3 {   /* selector multiple */
+    text-align: center;
+}
+
+h2 + p {    /* selector adyacente */
+    margin: 20px 0px;
+}
+
+section{
+    margin: 20px 0px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 10px;       /* Espacio visible entre celdas */
+    padding: 5px;
+    width: 100%;
+    border: 5px solid red;    /* Borde general alrededor de toda la tabla */
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 1px black;
+}
+
+table > caption {  /* selector padre > hijo */
+    background-color: orange;
+    border-radius: 10px;
+    margin: 0px 100px 10px 100px;
+    font-weight: bold;
+}
+
+table td { /* selector padre hijo no directo*/
+    border: solid 1px green;
+    background-color: aquamarine;
+    font-style: italic;
+    font-size: smaller;
+    text-align: right;
+}
+
+th {
+    border: solid 1px green;
+    background-color: coral;
+
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #222;
+    color: white;
+    text-align: right;
+    padding: 50px 0px;
+    z-index: 1000;
+    font-style: italic;
+}
+
+.nav a { /* selector padre hijo no directo*/
+    color: var(--main-color);
+    display: block;
+    line-height: 3.5;
+    padding: 0 10px;
+    text-decoration: none;
+    transition: .4s ease;
+
+}
+
+.nav a:hover { /* selector padre hijo no directo y accion al pasar raton po encima css3 */
+    transform: translateX(10%);
+    background: rgb(45, 102, 83, 0.3);
+}
+
+.nav li { /* selector padre hijo no directo*/
+    list-style: none;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+
+}
