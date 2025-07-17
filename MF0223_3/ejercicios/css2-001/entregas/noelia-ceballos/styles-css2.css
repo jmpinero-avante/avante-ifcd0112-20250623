@@ -1,0 +1,131 @@
+/* CSS Reset para formatear la página */
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body para ponerle fondo */
+
+body {
+    background-image: url("https://i.ibb.co/1f8tVdRW/pattern.png");
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Encabezado centrado */
+
+header {
+    color: #ffffff;
+    font-size: 25px;
+    background-color: #79bbd5;
+    border: 3px dashed #2582b4;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 400px;
+    margin-right: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Menú de navegación a la izquierda y color diferenciado */
+
+nav ul {
+    list-style: none;
+    position: fixed;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Selectores descendientes directos */
+
+nav ul li {
+    background-color: #2582b4;
+    border: 3px dashed #a9e20f;
+    margin-left: 100px;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+/* Selectores descendientes no directos */
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Le he puesto una transición a la barra de navegación para que los colores cambien de forma más gradual cuando el ratón esté sobre ella */
+
+nav ul li:hover {
+    color: #2582b4;
+    background-color: #c9eb6a;
+    border: 3px dashed #2582b4;
+    transition-property: background-color, border;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+nav a:hover {
+    color: #2582b4;
+    transition-property: color;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+
+/* Main */
+
+main {
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 100px;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 3px dashed #a9e20f;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+/* Tabla centrada horizontalmente en el main */
+
+table {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 600px;
+    border: 2px solid #2582b4;
+    padding: 10px;
+}
+
+table caption {
+    font-weight: bold;
+}
+
+
+/* Cabecera de la tabla de color diferenciado */
+
+thead th {
+    border: 2px solid #2582b4;
+    background-color: #79bbd5;
+    padding: 7px;
+    text-align: center;
+    font-weight: bold;
+}
+
+td {
+    border: 2px solid #2582b4;
+    padding: 5px;
+    background-color: #c9eb6a;
+}
+
+/* Pie de página a la derecha, en letra pequeña cursiva */
+
+footer {
+    background-color: #ffffff;
+    font-size: small;
+    text-align: right;
+    font-style: italic;
+}
