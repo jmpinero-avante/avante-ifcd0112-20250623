@@ -1,0 +1,369 @@
+/* Reset CSS básico utilizando el selector universal */
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }  
+            
+            /* Estilos del encabezado */
+            header {
+                background-color: #4a90e2; /* Fondo azul */
+                text-align: center;         /* Texto centrado */
+                padding: 2rem;
+            }
+
+            header h1 {
+                font-size: 2.5rem;          /* Fuente más grande */
+                color: white;
+                font-weight: bold;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+            }
+
+            /* Tabla */
+            main section {
+            padding: 1rem;
+            }
+
+            table {
+            width: 80%;
+            margin: 1rem auto; /* Centrado horizontal */
+            border-collapse: collapse;
+            border: 2px solid #444; /* Borde general */
+            font-family: Arial, sans-serif;
+            }
+
+            caption {
+            caption-side: top;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            }
+
+            thead th {
+            background-color: #4a90e2; /* Fondo diferenciado */
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.75rem;
+            border: 1px solid #444;
+            }
+
+            tbody td {
+            background-color: #e0e7ff; /* Fondo distinto del encabezado */
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #444;
+            }
+
+            /* Pie de página */
+            footer {
+            font-size: 0.8rem;      /* Fuente más pequeña */
+            text-align: right;      /* Texto alineado a la derecha */
+            font-style: italic;     /* Texto en cursiva */
+            padding: 1rem 2rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            margin-top: 2rem;
+            }
+
+            /* ---- SELECTORES CSS AVANZADOS ---- */
+
+            /* 1) Selectores múltiples independientes */
+            /* Aplica el mismo estilo a h2 y caption */
+            h2, caption {
+            color: #2a2a72;
+            text-transform: uppercase;
+            }
+
+            /* 2) Selectores descendientes directos (hijos) */
+            /* Aplica margen a hijos directos <tr> de <thead> */
+            thead > tr {
+            border-bottom: 3px solid #333;
+            }
+
+            /* 3) Selectores descendientes no directos */
+            /* Cambia color de enlaces dentro de nav, sin importar nivel */
+            nav a {
+            color: #0055aa;
+            }
+
+            /* 4) Selectores adyacentes (hermanos inmediatos) */
+            /* Aplica margen superior solo a los <tr> que siguen a otro <tr> */
+            tbody tr + tr {
+            border-top: 2px dashed #666;
+            }
+
+            /* Variables CSS para colores */
+            :root {
+            --color-primario: #4a90e2;
+            --color-secundario: #e0e7ff;
+            --color-texto-menu: #0055aa;
+            --color-fondo-footer: linear-gradient(90deg, #4a90e2, #67a1ff);
+            }
+
+            /* Importar fuente Google Fonts (Roboto) */
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+            /* Reset básico */
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+            body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            }
+
+            /* Animación en encabezados */
+            @keyframes fadeInDown {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            h1, h2 {
+            animation: fadeInDown 1s ease forwards;
+            }
+
+            /* Encabezado */
+            header {
+            background-color: var(--color-primario);
+            text-align: center;
+            padding: 2rem;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+                color: white;
+                font-weight: bold;
+            }
+
+            /* Menú de navegación */
+            nav {
+                background-color: #dcdcdc;
+                padding: 1rem;
+            }
+
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav li {
+                margin-bottom: 1rem; /* más espacio entre los ítems */
+            }
+
+            nav a {
+                text-decoration: none;
+                color: var(--color-texto-menu);
+                font-weight: bold;
+                transition: color 0.3s ease, background-color 0.3s ease;
+                cursor: pointer;
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+            }
+
+            nav a:hover {
+                color: white;
+                background-color: var(--color-primario);
+                text-decoration: none;
+            }
+
+            /* Tabla */
+            main section {
+                padding: 1rem;
+            }
+
+            table {
+                width: 80%;
+                margin: 1rem auto;
+                border-collapse: collapse;
+                border: 2px solid #444;
+                font-family: Arial, sans-serif;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            caption {
+                caption-side: top;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                color: #2a2a72;
+                text-transform: uppercase;
+            }
+
+            thead th {
+                background-color: var(--color-primario);
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                padding: 0.75rem;
+                border: 1px solid #444;
+            }
+
+            tbody td {
+                background-color: var(--color-secundario);
+                text-align: center;
+                padding: 0.5rem 0.75rem;
+                border: 1px solid #444;
+            }
+
+            tbody tr:nth-child(even) td {
+                background-color: #c5d0ff; /* Zebra effect */
+            }
+
+            /* Selector descendiente directo: bordes para fila encabezado */
+            thead > tr {
+                border-bottom: 3px solid #333;
+            }
+
+            /* Selector adyacente: borde superior solo en filas que siguen a otra */
+            tbody tr + tr {
+                border-top: 2px dashed #666;
+            }
+
+            /* Pie de página */
+            footer {
+                background: var(--color-fondo-footer);
+                color: white;
+                font-size: 0.85rem;
+                font-style: italic;
+                text-align: right;
+                padding: 1rem 2rem;
+                border-top: none;
+                border-radius: 0 0 8px 8px;
+                box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
+                margin-top: 2rem;
+            }
+
+            /* Selectores múltiples independientes */
+            h2, caption {
+                color: #2a2a72;
+                text-transform: uppercase;
+            }
+
+            /* Selectores descendientes no directos */
+            nav a {
+                color: var(--color-texto-menu);
+            }
+            /* Fondo animado con gradiente suave */
+            @keyframes gradientBackground {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            body {
+                background: linear-gradient(-45deg, #f5f7fa, #d1e3ff, #f5f7fa, #d1e3ff);
+                background-size: 400% 400%;
+                animation: gradientBackground 20s ease infinite;
+            }
+
+            /* Tabla: sombra con drop-shadow para mejor profundidad */
+            table {
+                filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+                transition: filter 0.3s ease;
+            }
+
+            /* Hover en filas del tbody: escala y sombra */
+            tbody tr:hover {
+                background-color: #a3b8ff !important; /* resalta con otro azul */
+                transform: scale(1.03);
+                box-shadow: 0 4px 12px rgba(74, 144, 226, 0.5);
+                transition: all 0.3s ease;
+                cursor: pointer;
+                z-index: 1;
+                position: relative;
+            }
+
+            /* Tooltip simple en celdas de precio */
+                tbody td:nth-child(2) {
+                position: relative;
+                cursor: help;
+            }
+
+            tbody td:nth-child(2)::after {
+                content: "Precio en Euros (€)";
+                position: absolute;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #4a90e2;
+                color: white;
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+                border-radius: 4px;
+                white-space: nowrap;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+                z-index: 10;
+            }
+
+            tbody td:nth-child(2):hover::after {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            /* Tamaños de fuente responsive con clamp */
+            h1 {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+            }
+
+            h2 {
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
+            }
+            
+            p, td, th {
+                font-size: clamp(0.9rem, 1.5vw, 1rem);
+            }
+
+            /* Animación en el footer al pasar cursor */
+            footer:hover {
+                background: linear-gradient(90deg, #67a1ff, #4a90e2);
+                box-shadow: 0 0 15px rgba(74,144,226,0.8);
+                transition: all 0.4s ease;
+                cursor: default;
+            }
+
+            /* Layout con float: nav a la izquierda y main a la derecha */
+            nav {
+                float: left;
+                width: 25%;
+                min-height: 83svh;
+                box-sizing: border-box;
+            }
+
+            main {
+                float: left;
+                width: 75%;
+                box-sizing: border-box;
+            }
+
+                /* Evitar que el footer se suba entre los elementos flotantes */
+            footer {
+                clear: both;
+            }
