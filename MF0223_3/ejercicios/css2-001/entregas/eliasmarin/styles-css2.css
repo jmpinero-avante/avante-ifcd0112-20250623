@@ -1,0 +1,195 @@
+/* Ejercicio CSS y GIT :
+====================================================================
+
+ 1. Reset CSS :
+    - Reset selector universal
+ 2. Encabezado :
+    - Color de fondo
+    - Texto Centrado
+    - Fuente Mayor Tamaño con respecto al predeterninado
+3. Menu de Navegación :
+    - Color de fondo diferenciado
+    - Posicionamienot a la izquierda
+4. Tabla :
+    - Bordes visibles entre celdas
+    - Borde general alrededor de toda la tabla
+    - Layenda/Titulo de la tabla :
+        - Encima de la tabla
+        - Texto Centrado respecto a la tabla
+        - Negrita
+    - Cabecera de la tabla :
+        - Color de fondo diferenciado
+        - Texto Centrado
+        - Negrita
+    - Cuerpo de la tabla :
+        - Color de fondo diferenciado (distinto a encabezado)
+5. Pie de página:
+    - Fuente de menor tamaño respecto al predeterminado.
+    - Alineado a la derecha
+    - Cursiva
+6. Selectores :
+    - Al menos una regla CSS con selectores multiples independientes.
+    - Al menos una  regla CSS con selectores descendientes directos (hijos).
+    - Al menos una regla CSS con selectores descendientes no directos.
+    - Al menos una regla CSS con selectores adyascentes o hermanos.
+7. Estilos extras :
+    - Detalles adicionales creativos y avanzados.
+    - Originalidad y calidad técnica de las implementaciones.
+    - Elementos opcionales valorados.
+    * He conseguido que el menu este a la izquierda pero que ocupa toda la pagina el fondo,
+    eliminado las bolitas de las listas, 
+8. Organización del código :
+    - Atender el orden y prioridad de las reglas.
+    - Eliminar la redundancia dentro de lo posible.
+    - Buen sangrado, espaciado y distribución de tu código.
+==================================================================================
+*/
+
+
+/*1 Reset CSS */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #2C3E50;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+2. Encabezado :
+    - Color de fondo
+    - Texto Centrado
+    - Fuente Mayor Tamaño con respecto al predeterninado
+ */
+header {
+    background-color: #004080;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+}
+
+header, main, footer {
+    margin-left: 200px;
+}
+h1 {
+    color: #d9e6f2;
+    margin: 0;
+    font-size: 3em;
+}
+/*
+3. Menu de Navegación :
+    - Color de fondo diferenciado
+    - Posicionamienot a la izquierda
+*/
+nav {
+    background-color: #0059b3;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    display: block;
+    padding: 15px 20px;
+    text-align: left;
+}
+
+
+nav a:hover {
+    background-color: #0073e6;
+    color: #FFFFFF;
+
+}
+
+main {
+    flex: 1;
+    /* Para empujar footer abajo */
+    padding: 20px;
+
+}
+
+h2 {
+    color: #0059b3;
+    font-size: 2.2em;
+}
+
+section {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #d9e6f2;
+
+}
+/*
+4. Tabla :
+    - Bordes visibles entre celdas
+    - Borde general alrededor de toda la tabla
+    - Layenda/Titulo de la tabla :
+        - Encima de la tabla
+        - Texto Centrado respecto a la tabla
+        - Negrita
+    - Cabecera de la tabla :
+        - Color de fondo diferenciado
+        - Texto Centrado
+        - Negrita
+    - Cuerpo de la tabla :
+        - Color de fondo diferenciado (distinto a encabezado)
+*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    
+}
+
+table > caption {
+    font: bold;
+    font-size: 3.5ex;
+    
+}
+thead {
+    background-color: #0073e6;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+th,
+td {
+    border: 1px solid #d9e6f2;
+    padding: 8px;
+    
+}
+
+/* Sticky Footer*/
+/*
+5. Pie de página:
+    - Fuente de menor tamaño respecto al predeterminado.
+    - Alineado a la derecha
+    - Cursiva
+*/
+footer {
+    background-color: #003366;
+    color: #FFFFFF;
+    text-align: right;
+    padding: 15px 20px;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-left: 200px;
+}
