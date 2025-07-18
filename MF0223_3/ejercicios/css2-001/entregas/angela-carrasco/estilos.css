@@ -1,0 +1,239 @@
+body {
+    /* Para resaltar el contenido he usado el
+			fondo blando con sombras que añadiré más adelante */
+    background-color: rgb(255, 255, 255);
+    margin: 20px;
+}
+
+header {
+    /* He escogido el rojo apagado 
+		(en firefox he comprobado que en chrome cambian)
+		de entre la gama de colores del consumo es de los más 
+		usados, junto al amarillo que uso más adelante*/
+    font-family: "Bungee", sans-serif;
+    background-color: rgb(200, 58, 58);
+    text-align: center;
+    font-size: large;
+    color: beige;
+    /* Para suavizar los tonos he complementado con beige y azul */
+    padding: 30px;
+    text-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+    /* este estilo añade sombra al texto */
+
+
+}
+
+nav,
+main,
+footer {
+    font-family: "Ubuntu", sans-serif;
+    /* aquí aclaro a quien quiero aplicarle directamente
+			la tipografía que escogí */
+}
+
+nav {
+    /* gradient nos da la dualidad degradada del color de fondo */
+    background: linear-gradient(to right, #d6c5a0, rgb(87, 119, 208));
+    align-items: flex-start;
+    /* alinea el texto al inicio (aunque pedía izquierda, pero es
+			 otro modo y quise dejarlo como práctica) */
+    margin: 20px;
+    padding: 20px;
+    /* margen y espaciado entre el contenido
+			para una mejor visualización */
+    border-radius: 0px 0px 10px 10px;
+    /*  No entiendo por qué no me funcionan estos estilos
+			mi intención era crear espacio entre las opciones del menú
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			*/
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+    /* sombra para la caja contenedora */
+
+}
+
+nav>ul {
+    /* con > indico el tipo de selector */
+    list-style-type: none;
+    font-size: 22px;
+
+}
+
+li:hover {
+    /* he añadido una pequeña animación para
+			diferenciar el contenido del nav, he tenido problema
+			con el espaciado entre los enlaces que no he resuelto,
+			gracias a la animación puedes ver que estás seleccionando
+			con más claridad, así mejora la accesibilidad*/
+    transform: translateX(-10px);
+    transition: transform 0.5s ease;
+}
+
+a {
+    /* Decidí quitarle los estilos a los enlaces, para
+			que resultase más estético */
+    text-decoration: none;
+    color: beige;
+    /* Elegí beige para no hacer tan protagonista al
+			menú de navegación */
+}
+
+h2 {
+    /* no me gusta la relación de los tamaños, le daría una vuelta 
+			a toda esta parte */
+    background-color: beige;
+    color: #50678f;
+    /* border radius para redondear las esquinas
+			del contenedor */
+    border-radius: 5px;
+    padding: 30px;
+    margin-left: -80px;
+    /* con este margen de la izquierda siento que ha sido
+			algo muy forzoso, me gustaría encontrar otra alternativa */
+}
+
+h2:hover {
+    color: #ebbb37;
+    transition: color 0.5s ease;
+    /* aquí un sencillo degradado progresivo al colocar
+			el ratón sobre él */
+}
+
+section {
+    background-color: rgb(64, 83, 133);
+    /* he usado la propiedad display para alinear los 
+			contenedores de la sección al centro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 600px;
+
+}
+
+section>p {
+    background-color: rgb(249, 179, 175);
+    color: brown;
+    font-size: 30px;
+    padding: 30px;
+    text-align: center;
+    margin: 20px;
+    border-style: dashed;
+    /* el dashed le hace el punteo de guiones al contorno */
+    border-color: rgb(26, 45, 93);
+    border-radius: 10px;
+    height: 100px;
+    font-family: "Bungee", sans-serif;
+    /* Aqui vuelvo a usar esta fuente para que sea más legible*/
+    animation: moverYRotar 2s ease-out alternate;
+    /* animación que complementa con keyframes abajo
+			durante 2 segundos y vuelve a su origen */
+}
+
+/* Lo siguiente, combinado con lo anterior, es una 
+		animación que he explorado aunque no lo hayamos visto en el curso
+		La explicación es que haya deslizamiento sobre el eje de X
+		y finalmente haga una rotación de 360 
+		(Lo hace automáticamente al recargar la página)*/
+
+@keyframes moverYRotar {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    80% {
+        transform: translateX(200px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(200px) rotate(360deg);
+    }
+}
+
+
+table {
+    /* Especifico el none para mostrar que he barajado
+			opciones de visualización, sé que es un requisito el
+			border alrededor de la tabla*/
+    border: none;
+    background-color: beige;
+    border-radius: 0px 0px 5px 5px;
+    /* Esta vez el radio del borde lo he hecho del modo
+			específico para aclarar donde quiero que esté el 
+			borde redondeado y donde no */
+    padding: 20px;
+    border-spacing: 7px;
+    margin-left: 20px;
+}
+
+table:hover {
+    /* Cambia de color del texto 
+			al pasar el mouse por la tabla */
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+    /* indica la duración de la transformación 
+			y la progresión ease */
+}
+
+caption {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    /* bold para letra negrita */
+    background-color: rgb(200, 58, 58);
+    border-radius: 5px 5px 0px 0px;
+    padding: 5px;
+}
+
+thead {
+    text-align: center;
+    font-weight: bold;
+}
+
+tbody {
+    background-color: rgb(151, 175, 242);
+}
+
+tr,
+th,
+td {
+    border: 2px solid;
+    border-radius: 5px 1px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+th {
+    color: rgb(255, 255, 255);
+    background-color: rgb(36, 59, 121);
+    border-color: rgb(111, 42, 29);
+    /* He querido diferenciar levemente el contenido
+			solo con colores */
+}
+
+tr:nth-of-type(1) {
+    /* Aquí uso el selector estructural para el primer
+			elemento  */
+    background-color: rgb(230, 159, 159);
+}
+
+
+tr :nth-child(1) {
+    /* Y aquí el selector del hijo */
+    background-color: rgb(87, 119, 208);
+}
+
+
+footer {
+    font-size: medium;
+    text-align: right;
+    font-style: italic;
+    /* Podría aplicarlo directamente al párrafo del footer
+			con <i>cursiva</i> pero he decidido hacerlo con estilo*/
+    padding: 10px;
+}
