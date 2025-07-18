@@ -10,7 +10,7 @@
         
         }
         body{
-            background-color: rgb(190, 168, 211);
+            background-image: url(90b5e34521ff274277fd48616a354e7c);
             font-family: Arial, Helvetica, sans-serif;
             color: #222;
             line-height: 1.5;
@@ -23,7 +23,7 @@
             font-size: 2em;
             color:aliceblue;
             padding: 20px;
-            background-color: rgb(96, 22, 166);
+            background-image: url(abd4b18e02fdcfbc545cabd38174cc97.jpg);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) ;
         }
 
@@ -31,7 +31,7 @@
         nav{
             width: 160px;
             float: left;
-            background-color: rgb(223, 214, 231);
+            background-image: url(26caed871d1d5864a057a4e9140f300c.jpg);
             height: 100vh;
             padding: 20px 0;
         
@@ -42,7 +42,7 @@
         }
         nav a{
             text-decoration: none;
-            color: rgb(50, 50, 100);
+            color: rgb(118, 68, 36);
             font-weight: bold;
             padding: 5px;
             display: inline-block;
@@ -61,10 +61,14 @@
         section{
             padding: 10px;
         }   
+        p{
+            padding-top: 30px;
+            
+        }
 
         /* TABLA */
         table,th,td{
-            border: 2px solid rgb(147, 112, 69);
+            border: 2px solid rgb(151, 105, 48);
             border-collapse: collapse;
             padding: 10px;
             
@@ -82,29 +86,29 @@
             margin-bottom: 10px;
         }
         thead{
-            background-color: #7b1c92ca;
+            background-color: #a96e22ca;
         }
         th{
             text-align: center;
             font-weight: bold;
         }
         tbody{
-            background-color: rgb(205, 189, 202);
+            background-color: rgb(246, 224, 187);
         }
-
+        
         footer{
             font-size: 0.8em;
             font-style: italic;
             text-align: right;
             clear: both;
-            padding:15px;
-            background-color: rgb(173, 140, 172);
+            padding: 10px;
+            background-image: url(23ec992c09119a023e93de1beb44a1e4.jpg);
         } 
 
         /* SELECTORES REQUERIDOS
             MULTIPLES INDEPENDIENTES */
 
-        h1,h2, p{
+        h1,h2, p {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -118,6 +122,6 @@
         }
         /*ADYACENTES */
 
-        h2+p{
+        h2+p +{
             margin-top: 10px;
         }
