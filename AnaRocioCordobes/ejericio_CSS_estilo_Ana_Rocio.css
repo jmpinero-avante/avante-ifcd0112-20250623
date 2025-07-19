@@ -1,0 +1,127 @@
+        
+        
+        /*  RESET CSS */
+        
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+
+        
+        }
+        body{
+            background-image: url(90b5e34521ff274277fd48616a354e7c);
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            line-height: 1.5;
+            
+        }
+
+        /* ENCABEZADO */
+        header{
+            text-align: center;
+            font-size: 2em;
+            color:aliceblue;
+            padding: 20px;
+            background-image: url(abd4b18e02fdcfbc545cabd38174cc97.jpg);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) ;
+        }
+
+        /* MENU DE NAVEGACION */
+        nav{
+            width: 160px;
+            float: left;
+            background-image: url(26caed871d1d5864a057a4e9140f300c.jpg);
+            height: 100vh;
+            padding: 20px 0;
+        
+        }
+        nav ul{
+            list-style:none;
+            padding: 0;
+        }
+        nav a{
+            text-decoration: none;
+            color: rgb(118, 68, 36);
+            font-weight: bold;
+            padding: 5px;
+            display: inline-block;
+        }
+        nav a:hover{
+            background-color: rgb(200,200,240);
+            color: darkblue;
+        }
+
+        /* MAIN Y SECTION */
+        main{
+            margin-left: 180px;
+            padding: 20px;
+        }
+
+        section{
+            padding: 10px;
+        }   
+        p{
+            padding-top: 30px;
+            
+        }
+
+        /* TABLA */
+        table,th,td{
+            border: 2px solid rgb(151, 105, 48);
+            border-collapse: collapse;
+            padding: 10px;
+            
+        }
+
+        table{
+            margin:  auto;
+            margin-top: 20px;
+            background-color: white;
+        }
+        caption{
+            caption-side: top;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        thead{
+            background-color: #a96e22ca;
+        }
+        th{
+            text-align: center;
+            font-weight: bold;
+        }
+        tbody{
+            background-color: rgb(246, 224, 187);
+        }
+        
+        footer{
+            font-size: 0.8em;
+            font-style: italic;
+            text-align: right;
+            clear: both;
+            padding: 10px;
+            background-image: url(23ec992c09119a023e93de1beb44a1e4.jpg);
+        } 
+
+        /* SELECTORES REQUERIDOS
+            MULTIPLES INDEPENDIENTES */
+
+        h1,h2, p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* DESCENDIENTES DIRECTOS  */
+        nav>ul{
+            margin-left: 10px;
+        }
+        /* DESCENDIENTES NO DIRECTOS */
+        section p{
+            font-size: 1.1em;
+        }
+        /*ADYACENTES */
+
+        h2+p +{
+            margin-top: 10px;
+        }
