@@ -1,0 +1,166 @@
+/*----------Damos formato mediante el selector universal "*"----------------- */
+
+/*Reset basico, combinado con un presed sencillo para las 
+fuentes de texto ,utilizamos la propiedad box-sizing para incluir
+el margin y el pading dentro del tamaño de las cajas*/
+@font-face {
+    font-family: 'Rubik';
+    src: url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: medium;
+    line-height: 1.5em;
+    font-family: 'Rubik';
+}
+
+hr
+{
+    padding: 2px;
+    margin-top: 3px;
+    background-color: white;
+}
+/*--------------------------------------------------------------------------*/
+
+/*Formatemos el body con fondo y ajustamos tamaño de la ventana al 100%*/
+
+body {
+    background-image: url(/img/background.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: absolute;
+}
+
+/*----------------Editamos header mediante selector de etiqueta-------------*/
+
+/*Cambiamos el color del fondo de la etiqueta header a negro*/
+header {
+    width: 100%;
+    background-color: rgb(61, 22, 43);
+}
+
+/*Ajustamos el tamaño de la fuente a xx-large (32px), cambiamos el color de la 
+fuente a blanco y alineamos sus elementos de texto al centro mediante
+selector hijo*/
+header>h1 {
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+}
+
+/*---------------------------------------------------------------------------*/
+
+
+/*--------------Editamos Nav mediante selector descendente------------------*/
+
+/*Cambiamos color de fondo del elemento nav y lo ajustamos como elemento
+flotante a la izquierda, */
+nav {
+    width: 95px;
+    padding-bottom: 45%;
+    position: relative;
+    background-color: rgba(178, 127, 207, 0.25);
+    float: left;
+}
+
+/*Quitamos subrrayado de los enlaces y damos color purpura*/
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/*animacion sencilla de cambio de color con hover*/
+nav a:hover {
+    color: pink;
+}
+
+/*incorporamos visited*/
+nav a:visited {
+    color: white;
+}
+
+/*Separamos 5 px los elementos de la lista para mejor legibilidad*/
+nav li {
+    border: 1px solid purple;
+    background-color: purple;
+    margin-left: 2px;
+    margin-top: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+nav li:hover {
+    background-color: rgb(181, 161, 226);
+    border-color:  rgb(181, 161, 226);
+}
+
+/*--------------------------------------------------------------------------*/
+/*damos al main 100% de tamaño de pagina*/
+main {
+    width: 100%;
+    justify-items: center;
+    margin-top: 200px;
+}
+
+/*damos al section 50% de tamaño del main*/
+section {
+    width: 50%;
+}
+
+/*formateamos el parrafo del section*/
+section p {
+    text-align: center;
+}
+
+section p+p {
+    color: blueviolet;
+}
+
+/*formateamos el h2 del section*/
+section h2 {
+    text-align: center;
+    font-weight: 900;
+}
+
+/*damos a la tabla 100% del tamaño del section*/
+main table {
+    width: 100%;
+}
+
+/*formateamos la tabla y la centramos con respecto al section*/
+main table,
+main table td,
+main table th {
+    border: 2px solid black;
+    border-radius: 5px;
+    justify-self: center;
+}
+
+/*formateamos el header y ponemos negritas*/
+main table>thead,
+main table th {
+    font-weight: 700;
+    text-align: center;
+    background-color: rgb(185, 153, 163);
+}
+
+
+/*damos color al body de la tabla*/
+main table>tbody {
+    background-color: rgb(148, 133, 167);
+}
+
+/*formateamos con el texto a la derechafooter*/
+footer {
+    width: 100%;
+    float: right;
+    text-align: right;
+    background-color: rgb(198, 11, 255);
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    font-size: small;
+}
