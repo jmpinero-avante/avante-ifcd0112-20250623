@@ -1,0 +1,180 @@
+/* Reset universal para normalizar estilos */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    background-color: #DFFFEF; /* fondo suave */
+    font-family: 'Roboto', sans-serif;
+    color:#333333;
+}
+
+main {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    font-size: x-large;
+    margin-left: 25%; /* Deja espacio a la izquierda para el menú */
+    padding: 2em;
+}
+
+    /* Header -> Estilos */
+header {
+    background-color: #2D6A4F ;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1.5em;
+    font-family: 'Playfair Display', serif;
+    color:#FFFFFF;
+}
+
+    /* Menú -> Estilos */
+nav {
+    background-color: #95D5B2;
+    width: 10%;
+    height: 100vh; /* altura visible */
+    position: fixed;
+    top: 15%;
+    left: 0;
+    overflow-y: auto;
+}
+
+nav > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 0 10px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+    color:#1b1b1b;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #006666; /* verde azulado más brillante */
+    color: white;
+}
+    /* Texto anterior a la tabla */
+h2 + p {
+    font-style: italic;
+    margin-top: 5%;
+}
+
+h2, p, caption {
+    text-align: center;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+thead{
+    background-color: #4CAF50; 
+    font-weight: bold;
+}
+
+tbody{
+    background-color: #C8E6C9;
+}
+
+    /* Tabla */
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 3%;
+    border: 13px solid lightgreen ;
+}
+
+ th, td {
+    border: 1px solid black;
+}
+
+    /* Footer */
+footer {
+    background-color: #357270;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-style: oblique;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    width: 300px;
+    height: 35px;
+    top: 95%;
+    right: 0.5%;
+}
+
+
+/* Media querie -> Ventana más pequeña y para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Menú vertical pasa a horizontal arriba */
+    nav {
+        width: 100%;
+        height: auto;
+        position: static;
+        background-color: #95D5B2; /* mismo verde claro que en escritorio */
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        padding: 0.5em;
+        text-align: center;
+    }
+
+    nav a {
+        color: #333333; /* coherente con el texto general */
+    }
+
+    nav a:hover {
+        background-color: #2D6A4F; /* verde oscuro del header */
+        color: white;
+    }
+
+    /* Reorganiza el contenido principal */
+    main {
+        position: static;
+        margin: 0;
+        padding: 1em;
+        font-size: large;
+        background-color: #DFFFEF; /* mantiene el fondo suave */
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9em;
+        border: 3px solid lightgreen; /* bordes más suaves en móvil */
+    }
+
+    footer {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 1em;
+        font-size: small;
+        background-color: #357270; /* mantiene el tono del footer */
+        color: white;
+    }
+
+    h2 + p, caption {
+        margin: 1em 0;
+    }
+}
